@@ -1,0 +1,27 @@
+{
+    "name": "aams-cc/laravel-aams",
+    "description": "Laravel AAMS connector",
+    "type": "library",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^11.34"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aams\\LaravelAams\\Providers\\AamsServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Aams\\LaravelAams\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AAMS",
+            "email": "general@aams.cc"
+        }
+    ]
+}
