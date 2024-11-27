@@ -33,4 +33,4 @@ AAMS_API_ENDPOINT=https://api.example.com
 
 Support the development of this package by sponsoring us! 💖
 
-[![Sponsor Logo](https://search.casino/sponsorship-logo.png)](https://search.casino) 
+[![Sponsor Logo](https://search.casino/sponsor-logo.png)](https://search.casino) 
