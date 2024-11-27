@@ -28,3 +28,9 @@ AAMS_API_ENDPOINT=https://api.example.com
 ## Authors
 
 - [AAMS](mailto:general@aams.cc) - [Website](https://aams.cc)
+
+## Sponsorship
+
+Support the development of this package by sponsoring us! 💖
+
+[![Sponsor Logo](https://search.casino/sponsorship-logo.png)](https://search.casino) 
