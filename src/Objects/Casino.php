@@ -52,8 +52,8 @@ class Casino
             'uuid' => $this->uuid,
             'id' => $this->id,
             'title' => $this->title,
-            'data' => $this->data->toArray(),
-            'link' => $this->link->toArray(),
+            'data' => $this->data?->toArray(),
+            'link' => $this->link?->toArray(),
         ];
     }
 }
