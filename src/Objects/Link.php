@@ -6,7 +6,7 @@ readonly class Link
 {
     public function __construct(
         public string $id,
-        public array $url,
+        public string $url,
         public string $country,
         public ?string $adId = null,
     )
@@ -16,7 +16,7 @@ readonly class Link
 
     public static function from(
         string $id,
-        array $url,
+        string $url,
         string $country,
         ?string $adId = null,
     ): Link
