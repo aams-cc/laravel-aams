@@ -19,21 +19,15 @@ class Casino
          $this->service = resolve(Aams::class);
     }
 
-    public static function from(string $uuid, string $id, string $title, ?Link $link = null, ?IgdbCasino $igdbCasino = null): Casino
+    public static function from(array $array): Casino
     {
-        $object = new Casino(
-            uuid: $uuid,
-            id: $id,
-            title: $title,
-            data: $igdbCasino,
-            link: $link,
+        return new Casino(
+            uuid: $array['uuid'],
+            id: $array['id'],
+            title: $array['title'],
+            data: IgdbCasino::fromArray($array['data']),
+            link: isset($array['link']) ? Link::from($array['link']) : null,
         );
-
-        if(!$igdbCasino) {
-            $object->load();
-        }
-
-        return $object;
     }
 
     public function load(): void

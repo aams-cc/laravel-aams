@@ -8,24 +8,17 @@ readonly class Link
         public string $id,
         public string $url,
         public string $country,
-        public ?string $adId = null,
     )
     {
         //
     }
 
-    public static function from(
-        string $id,
-        string $url,
-        string $country,
-        ?string $adId = null,
-    ): Link
+    public static function from(array $array): Link
     {
         return new Link(
-            id: $id,
-            url: $url,
-            country: $country,
-            adId: $adId
+            id: $array['id'],
+            url: $array['url'],
+            country: $array['country'],
         );
     }
 
@@ -35,7 +28,6 @@ readonly class Link
             'id' => $this->id,
             'url' => $this->url,
             'country' => $this->country,
-            'adId' => $this->adId,
         ];
     }
 }

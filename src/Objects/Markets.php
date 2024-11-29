@@ -2,10 +2,11 @@
 
 namespace Aams\LaravelAams\Objects;
 
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 
-readonly class Markets
+readonly class Markets implements Arrayable
 {
     public function __construct(
         public Collection $target,
@@ -30,5 +31,14 @@ readonly class Markets
             restricted: collect($array['restricted_countries']),
             updatedAt: Carbon::parse($array['updated_at']),
         );
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'target_countries' => $this->target->toArray(),
+            'restricted_countries' => $this->restricted->toArray(),
+            'updated_at' => $this->updatedAt->toString(),
+        ];
     }
 }

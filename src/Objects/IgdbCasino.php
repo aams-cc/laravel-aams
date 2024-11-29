@@ -34,6 +34,22 @@ readonly class IgdbCasino
         );
     }
 
+    public static function fromArray(array $array) : IgdbCasino
+    {
+        return new IgdbCasino(
+            original: $array,
+            id: $array['id'],
+            title: $array['title'],
+            url: $array['url'],
+            bonuses: new BonusCollection(
+                collect($array['bonuses'] ?? [])->map(
+                    fn(array $bonus) => Bonus::from($bonus)
+                )
+            ),
+            markets: Markets::from($array['market'] ?? null)
+        );
+    }
+
     public function toArray() : array
     {
         return [
@@ -41,6 +57,7 @@ readonly class IgdbCasino
             'title' => $this->title,
             'url' => $this->url,
             'bonuses' => $this->bonuses->toArray(),
+            'markets' => $this->markets->toArray(),
         ];
     }
 }
