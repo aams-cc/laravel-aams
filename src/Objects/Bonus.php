@@ -47,7 +47,7 @@ class Bonus implements Arrayable
         return new Bonus(
             id: $data['id'],
             title: $data['title'],
-            minDeposit: new AmountCollection($data['min_deposit'])
+            minDeposit: (new AmountCollection($data['min_deposit']))
                 ->filter(
                     fn(array $amount) => is_numeric($amount['amount']) && $amount['amount'] > 0
                 )

@@ -24,7 +24,9 @@ class Aams
         $array = $response->json('data.casinos');
 
         return collect($array)->map(function (array $casino) {
-            return Casino::from($casino);
+            return Casino::from(
+                uuid: $casino['uuid'],
+            );
         });
     }
 
