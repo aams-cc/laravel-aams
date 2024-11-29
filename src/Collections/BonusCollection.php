@@ -15,6 +15,13 @@ class BonusCollection extends \Illuminate\Support\Collection
             ->isNotEmpty();
     }
 
+    public function hasReloadBonus(): bool
+    {
+        return $this->where('group', BonusGroup::Deposit)
+            ->where('depositType', BonusDepositType::Reload)
+            ->isNotEmpty();
+    }
+
     public function getWelcomeBonus(): ?Bonus
     {
         return $this->where('group', BonusGroup::Deposit)
