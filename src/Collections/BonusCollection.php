@@ -14,4 +14,24 @@ class BonusCollection extends \Illuminate\Support\Collection
             ->where('depositType', BonusDepositType::Entry)
             ->isNotEmpty();
     }
+
+    public function getWelcomeBonus(): ?Bonus
+    {
+        return $this->where('group', BonusGroup::Deposit)
+            ->where('depositType', BonusDepositType::Entry)
+            ->first();
+    }
+
+    public function getCashbackBonus(): ?Bonus
+    {
+        return $this->where('group', BonusGroup::Cashback)
+            ->first();
+    }
+
+    public function getReloadBonus(): ?Bonus
+    {
+        return $this->where('group', BonusGroup::Deposit)
+            ->where('depositType', BonusDepositType::Reload)
+            ->first();
+    }
 }

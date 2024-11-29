@@ -46,7 +46,7 @@ readonly class IgdbCasino
                     fn(array $bonus) => Bonus::from($bonus)
                 )
             ),
-            markets: Markets::from($array['market'] ?? null)
+            markets: Markets::from($array['markets'] ?? null)
         );
     }
 
