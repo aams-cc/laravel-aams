@@ -11,6 +11,7 @@ readonly class IgdbCasino
         public string $id,
         public string $title,
         public string $url,
+        public array $logo,
         public BonusCollection $bonuses,
         public Markets $markets,
     )
@@ -25,6 +26,7 @@ readonly class IgdbCasino
             id: $array['id'],
             title: $array['title'],
             url: $array['url'],
+            logo: $array['logo'] ?? [],
             bonuses: new BonusCollection(
                 collect($array['bonuses'] ?? [])->map(
                     fn(array $bonus) => Bonus::from($bonus)
@@ -41,6 +43,7 @@ readonly class IgdbCasino
             id: $array['id'],
             title: $array['title'],
             url: $array['url'],
+            logo: $array['logo'] ?? [],
             bonuses: new BonusCollection(
                 collect($array['bonuses'] ?? [])->map(
                     fn(array $bonus) => Bonus::from($bonus)
@@ -56,6 +59,7 @@ readonly class IgdbCasino
             'id' => $this->id,
             'title' => $this->title,
             'url' => $this->url,
+            'logo' => $this->logo,
             'bonuses' => $this->bonuses->toArray(),
             'markets' => $this->markets->toArray(),
         ];
